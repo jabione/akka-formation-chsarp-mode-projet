@@ -1,9 +1,11 @@
-﻿namespace JeuStarWars
+﻿namespace JeuxStarWars
 {
     using System.Diagnostics;
     using System;
     using System.Runtime.CompilerServices;
     using static System.Console;
+
+
     /// <summary>
     /// Class se lancant au démarage de l'apli
     /// </summary>
@@ -17,29 +19,29 @@
         {
 
             ChoisirPersonnage();
-            
+
         }
 
         #region mes fonctions
         private static bool ChoisirPersonnage()
         {
-            
+
             Console.Clear();
             Console.WriteLine("Liste des personnages");
             Console.WriteLine("1 - Obiwan");
             Console.WriteLine("2 - Anakin");
             Console.Write("\r\nveuillez sélectionner un personnage(numéro) :");
-            
 
-                switch (Console.ReadLine())
-                {
-                    case "1":
-                        
-                        Obiwan obiwan = new Obiwan();
+
+            switch (Console.ReadLine())
+            {
+                case "1":
+
+                    Obiwan obiwan = new Obiwan();
                     Console.WriteLine("-----------------------");
                     Console.WriteLine("nom : {0}             ", obiwan.Nom);
-                    Console.WriteLine("point de vie: {0}     ",obiwan.Vie);
-                    Console.WriteLine("attaque: {0}          ",obiwan.Attaque);
+                    Console.WriteLine("point de vie: {0}     ", obiwan.Vie);
+                    Console.WriteLine("attaque: {0}          ", obiwan.Attaque);
                     Console.WriteLine("pm: {0}               ", obiwan.PM);
                     Console.WriteLine("-----------------------");
                     Console.WriteLine("Voulez vous sélectionné ObiWan?");
@@ -47,7 +49,7 @@
                     if (Console.ReadKey(true).Key == ConsoleKey.Enter)
                     {
                         AffichageMenuDemarage(SauvegardePersonnageChoisi(obiwan.Nom));
-                        
+
                     }
                     else
                     {
@@ -55,8 +57,8 @@
                     }
                     return true;
                 case "2":
-                        Console.WriteLine("Vous avez sélectionné Anakin");
-                        Anakin anakin = new Anakin();
+                    Console.WriteLine("Vous avez sélectionné Anakin");
+                    Anakin anakin = new Anakin();
                     Console.WriteLine("-----------------------");
                     Console.WriteLine("nom : {0}             ", anakin.Nom);
                     Console.WriteLine("point de vie: {0}     ", anakin.Vie);
@@ -77,14 +79,14 @@
                     return true;
 
                 default:
-                        return true;
-                }
-            
+                    return true;
+            }
+
         }
 
         private static void AffichageMenuDemarage(string personnage)
         {
-            
+
             Console.Clear();
             Console.WriteLine("personnage choisi :{0}", personnage);
             Console.WriteLine("1 - nouvelle partie");
@@ -106,11 +108,11 @@
             {
                 Console.WriteLine("le choix est incorrect");
             }
-           
+
         }
         private static string SauvegardePersonnageChoisi(string personnage)
         {
-            if(personnage == "Obiwan" || personnage == "Anakin")
+            if (personnage == "Obiwan" || personnage == "Anakin")
             {
 
                 return personnage;

@@ -1,4 +1,4 @@
-﻿namespace JeuStarWars
+﻿namespace JeuxStarWars
 {
     using System;
     using System.Collections.Generic;
@@ -8,7 +8,7 @@
     /// <summary>
     /// Classe Personnage
     /// </summary>
-    public class Obiwan
+    public class Anakin
     {
         #region Variable
         private string nom;
@@ -18,7 +18,7 @@
         private int attaque;
         private bool etat;
 
-       
+
         #endregion
 
         #region GetterAndSetter
@@ -71,14 +71,14 @@
         #endregion
 
         #region Constructeur
-        public Obiwan()
+        public Anakin()
         {
-            this.nom = "Obiwan";
-            this.vie = 10;
+            this.nom = "Anakin";
+            this.vie = 8;
             this.alignement = true;
             this.pM = 3;
             this.etat = true;
-            this.attaque = 6;
+            this.attaque = 5;
         }
         #endregion
 
