@@ -4,12 +4,15 @@
     using System;
     using System.Runtime.CompilerServices;
     using static System.Console;
+    using JeuxStarWars;
+    using System.Text;
+    using System.Text.RegularExpressions;
 
 
     /// <summary>
     /// Class se lancant au démarage de l'apli
     /// </summary>
-    class Program
+    public class Program
     {
         /// <summary>
         /// Méthode principale de la class
@@ -17,15 +20,12 @@
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-
             ChoisirPersonnage();
-
         }
 
         #region mes fonctions
         private static bool ChoisirPersonnage()
         {
-
             Console.Clear();
             Console.WriteLine("Liste des personnages");
             Console.WriteLine("1 - Obiwan");
@@ -79,11 +79,11 @@
                     return true;
 
                 default:
-                    return true;
+                    ChoisirPersonnage();
+                    return false;
             }
 
         }
-
         private static void AffichageMenuDemarage(string personnage)
         {
 
@@ -98,7 +98,9 @@
             if (choix == "1")
             {
                 Console.Clear();
-                Console.WriteLine("Chargement de la partie");
+                Grille grille = new Grille();
+                Grille.informationGrille();
+               
             }
             else if (choix == "2")
             {
@@ -122,7 +124,7 @@
                 return null;
             }
         }
-
+       
         #endregion
     }
 }
