@@ -11,7 +11,7 @@ namespace JeuxStarWars
         {
 
         }
-        private static void GenererGrille(int largeur, int hauteur)
+        public static void GenererGrille(decimal largeur, decimal hauteur)
         {
             Console.Clear();
             for (int o = 0; o < hauteur; o++)
@@ -22,7 +22,7 @@ namespace JeuxStarWars
             afficheSeparateur(largeur);
             Console.ReadKey();
         }
-        public static void informationGrille()
+        public static void informationGrille(string personnage)
         {
             Console.WriteLine("veuillez choisir une largeur a la grille :");
             string saisiLargeur = Console.ReadLine();
@@ -33,18 +33,21 @@ namespace JeuxStarWars
                 string saisiHauteur = Console.ReadLine();
                 if (Regex.IsMatch(saisiHauteur, @"^[0-9]+$"))
                 {
+                    Sauvegarde sauvegarde = new Sauvegarde(personnage, Int32.Parse(saisiLargeur), Int32.Parse(saisiHauteur));
+                    sauvegarde.enregistrementPartie(sauvegarde);
                     validationGrille(Int32.Parse(saisiLargeur), Int32.Parse(saisiHauteur));
+
                 }
                 else
                 {
                     Console.Clear();
-                    informationGrille();
+                    informationGrille(personnage);
                 }
             }
             else
             {
                 Console.Clear();
-                informationGrille();
+                informationGrille(personnage);
             }
 
 
@@ -70,7 +73,7 @@ namespace JeuxStarWars
             }
         }
 
-        private static void afficheSeparateur(int n)
+        private static void afficheSeparateur(decimal n)
         {
             int i;
 
@@ -78,7 +81,7 @@ namespace JeuxStarWars
                 Console.Write("+---");
             Console.WriteLine("+");
         }
-        private static void afficherLigne(int largeur)
+        private static void afficherLigne(decimal largeur)
         {
             StringBuilder mystringBuilder = new StringBuilder();
             for (int i = 0; i < largeur; i++)
